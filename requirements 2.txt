@@ -1,6 +1,8 @@
 streamlit
 alpaca-trade-api
-scikit-learn
 pandas
-ta
+numpy
+scikit-learn
 pyyaml
+matplotlib
+ta
