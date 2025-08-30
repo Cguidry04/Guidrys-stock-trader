@@ -1,0 +1,50 @@
+# config.yaml - Fill secrets locally or use Streamlit Secrets (do NOT commit real secrets to GitHub)
+# Non-secret runtime settings live here; keep API keys empty when using Streamlit Secrets.
+
+alpaca:
+  # account_type: "paper" or "live" (for your reference)
+  account_type: "paper"
+  # If running locally/VPS, you may paste keys here (NOT recommended for public repos)
+  api_key: ""
+  api_secret: ""
+  base_url: "https://paper-api.alpaca.markets"
+
+settings:
+  default_account_value: 100000          # used to suggest position sizes (USD)
+  risk_per_trade_pct: 1.0                # percent of account risked per trade (e.g. 1.0 = 1%)
+  max_daily_loss_pct: 5.0                # emergency stop if daily loss reaches this percent
+  max_positions: 5                       # maximum concurrent open positions
+  trade_timeframes: ["5m","60m","1d"]    # priority order for multi-timeframe logic
+
+symbols:
+  default_watchlist:
+    - AAPL
+    - MSFT
+    - QQQ
+    - TSLA
+
+ml:
+  enabled: true
+  model_type: "gradient_boosting"
+  retrain_days: 7                        # retrain weekly (example)
+  probability_threshold: 0.62            # min ML probability to consider entry
+
+scheduler:
+  auto_scan: false
+  scan_interval_minutes: 5
+  market_open_offset_minutes: 5          # scan a few minutes after market open
+  market_close_offset_minutes: -5
+
+telegram:
+  enabled: false
+  token: ""
+  chat_id: ""
+
+logging:
+  level: "INFO"
+  trade_log_file: "trades.log"
+
+notes: >
+  - Do NOT commit API secrets to GitHub.
+  - For Streamlit Cloud, add real secrets under App → Settings → Secrets (see instructions).
+  - For local/VPS use, create a .env file or populate the alpaca.api_key & api_secret here (file should be .gitignored).
