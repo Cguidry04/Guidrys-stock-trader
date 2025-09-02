@@ -1,9 +1,5 @@
-__init__.py
 streamlit
 alpaca-trade-api
 pandas
 numpy
 scikit-learn
-pyyaml
-matplotlib
-ta
