@@ -1,1 +1,1 @@
-# package init
+# package initializer
